@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>demo</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				overflow: hidden;
+				perspective: 1000px;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				/*background: red;*/
+				margin: 280px auto;
+				position: relative;
+				transform-style: preserve-3d;
+				
+				/*transform: rotateX(0deg);*/
+				/*transform: rotateY(0deg);*/
+				transform-origin: 50% 50% -50px;
+				animation: donghua 10s infinite linear;
+			}
+			@keyframes donghua{
+				to{
+					transform: rotateX(360deg) rotateY(360deg);
+				}
+			}
+			#box div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			#box .box1{
+				background: #33ff66;
+				top: -100px;
+				left: 0;
+				transform: rotateX(90deg);
+				transform-origin: bottom;
+				transition: 1s;
+			}
+			#box .box2{
+				background: #ff33ff;
+				top: 100px;
+				left: 0;
+				transform: rotateX(-90deg);
+				transform-origin: top;
+				transition: 1s;
+			}
+			#box .box3{
+				background: #993366;
+				top: 0;
+				left: -100px;
+				transform: rotateY(-90deg);
+				transform-origin: right;
+				transition: 1s;
+			}
+			#box .box4{
+				background: #33ff33;
+				top: 0;
+				left: 100px;
+				transform: rotateY(90deg);
+				transform-origin: left;
+				transition: 1s;
+			}
+			#box .box5{
+				background: #0066ff;
+				top: 0px;
+				left: 0;
+				transition: 1s;
+			}
+			#box .box6{
+				background: #0066cc;
+				top: 0px;
+				left: 0;
+				transform: translateZ(-100px);
+				transition: 1s;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="box1">上1</div>
+			<div class="box2">下1</div>
+			<div class="box3">左1</div>
+			<div class="box4">右1</div>
+			<div class="box5">前1</div>
+			<div class="box6">后1</div>
+
+			<div class="box1 box7">上2</div>
+			<div class="box2 box8">下2</div>
+			<div class="box3 box9">左2</div>
+			<div class="box4 box10">右2</div>
+			<div class="box5 box11">前2</div>
+			<div class="box6 box12">后2</div>
+		</div>
+
+
+	</body>
+</html>
+<script>
+	var oBox = document.getElementById("box");
+	var oBox7 = document.getElementsByClassName("box7")[0];
+	var oBox8 = document.getElementsByClassName("box8")[0];
+	var oBox9 = document.getElementsByClassName("box9")[0];
+	var oBox10 = document.getElementsByClassName("box10")[0];
+	var oBox11 = document.getElementsByClassName("box11")[0];
+	var oBox12 = document.getElementsByClassName("box12")[0];
+	oBox.onmouseover = function(){
+		oBox7.style.transform = "translateY(-50px) rotateX(90deg)";
+		oBox8.style.transform = "translateY(50px) rotateX(-90deg)";
+		oBox9.style.transform = "translateX(-50px) rotateY(-90deg)";
+		oBox10.style.transform = "translateX(50px) rotateY(90deg)";
+		oBox11.style.transform = "translateZ(50px) rotateZ(0deg)";
+		oBox12.style.transform = "translateZ(-150px) rotateZ(0deg)";
+	}
+	oBox.onmouseout = function(){
+		oBox7.style.transform = "translateY(0px) rotateX(90deg)";
+		oBox8.style.transform = "translateY(0px) rotateX(-90deg)";
+		oBox9.style.transform = "translateX(0px) rotateY(-90deg)";
+		oBox10.style.transform = "translateX(0px) rotateY(90deg)";
+		oBox11.style.transform = "translateZ(0px) rotateZ(0deg)";
+		oBox12.style.transform = "translateZ(-100px) rotateZ(0deg)";
+	}
+
+	//console.log(oBox)
+</script>
